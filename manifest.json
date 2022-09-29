@@ -18,5 +18,9 @@
       },
       "description": "open hello.html"
     }
-  }
+  },
+  "permissions": [
+    "contextMenus",
+    "bookmarks"
+  ]
 }
