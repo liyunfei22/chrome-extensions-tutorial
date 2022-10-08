@@ -13,3 +13,16 @@ chrome.bookmarks.onCreated.addListener(() => {
   // do something
   console.log('make a bookmarks')
 });
+
+// 注入脚本
+function injectedFunction() {
+  console.log('ssss')
+  document.body.style.backgroundColor = 'orange';
+}
+// 改变颜色
+chrome.action.onClicked.addListener((tab) => {
+  chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    func: injectedFunction
+  });
+});
