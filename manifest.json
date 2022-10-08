@@ -14,7 +14,7 @@
     "exclude_matches": ["*://127.0.0.1/*", "*://localhost/*", "*://dev.djtest.cn/*"],
      "css": ["content/index.css"],
      "run_at": "document_end",
-     "js": ["content/content-script.js"]
+     "js": ["content/index.js"]
   }],
   "commands": {
     "_execute_action": {
