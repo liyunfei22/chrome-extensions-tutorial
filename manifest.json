@@ -13,7 +13,6 @@
     "matches": ["<all_urls>"],
     "exclude_matches": ["*://127.0.0.1/*", "*://localhost/*", "*://dev.djtest.cn/*"],
      "css": ["content/index.css"],
-     "run_at": "document_end",
      "js": ["content/index.js"]
   }],
   "commands": {
@@ -29,6 +28,7 @@
     "contextMenus",
     "bookmarks",
     "activeTab",
-    "scripting"
+    "scripting",
+    "storage"
   ]
 }
