@@ -53,7 +53,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     sendResponse({farewell: "goodbye"});
   }
 })
-
+// 监听onAlarm事件
 chrome.alarms.onAlarm.addListener(() => {
   chrome.action.setBadgeText({ text: '' });
   chrome.notifications.create({
@@ -69,9 +69,14 @@ chrome.alarms.onAlarm.addListener(() => {
     console.log('sss', notificationId)
   });
 });
-
+// 监听onButtonClicked事件
 chrome.notifications.onButtonClicked.addListener(async () => {
   const item = await chrome.storage.sync.get(['minutes']);
   chrome.action.setBadgeText({ text: 'ON' });
   chrome.alarms.create({ delayInMinutes: item.minutes });
+});
+// 监听omnibox onInputEntered 事件
+chrome.omnibox.onInputEntered.addListener(function(text) {
+  const newURL = 'https://www.google.com/search?q=' + encodeURIComponent(text);
+  chrome.tabs.create({ url: newURL });
 });
