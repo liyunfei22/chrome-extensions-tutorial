@@ -42,6 +42,9 @@
       "description": "百度"
     }
   },
+  "chrome_url_overrides" : {
+    "history": "history/history.html"
+  },
   "permissions": [
     "contextMenus",
     "bookmarks",
@@ -49,6 +52,7 @@
     "notifications",
     "activeTab",
     "scripting",
+    "history",
     "storage"
   ]
 }

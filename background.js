@@ -89,7 +89,6 @@ chrome.contextMenus.onClicked.addListener(function (item, tab) {
 });
 // 监听快命令
 chrome.commands.onCommand.addListener(command => {
-  console.log(command)
   if (command === 'go-google') {
     chrome.tabs.create({ url: "https://www.google.com" });
   } else {
