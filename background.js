@@ -1,12 +1,4 @@
-// 侦听 runtime.onInstalled 事件以在安装时初始化扩展
-chrome.runtime.onInstalled.addListener(async () => {
-  console.log('ss')
-  chrome.contextMenus.create({
-    "id": "sampleContextMenus",
-    "title": "Sample Context Menu",
-    "contexts": ["selection"],
-  });
-});
+
 // 侦听器必须从页面开始同步注册。
 // 监听创建书签的event
 chrome.bookmarks.onCreated.addListener(() => {
@@ -79,4 +71,19 @@ chrome.notifications.onButtonClicked.addListener(async () => {
 chrome.omnibox.onInputEntered.addListener(function(text) {
   const newURL = 'https://www.google.com/search?q=' + encodeURIComponent(text);
   chrome.tabs.create({ url: newURL });
+});
+// 侦听 runtime.onInstalled 事件以在安装时初始化扩展
+// 设置contextMenus
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.contextMenus.create({
+    id: 'go',
+    title: "google 搜索: %s",
+    type: 'normal',
+    contexts: ['selection'],
+  });
+});
+// 监听事件
+chrome.contextMenus.onClicked.addListener(function (item, tab) {
+  let url = 'https://google.com/search?q=' + encodeURIComponent(item.selectionText);
+  chrome.tabs.create({url: url, index: tab.index + 1});
 });
