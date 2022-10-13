@@ -7,7 +7,15 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_icon": "hello_extensions.png"
+    "default_icon": "hello_extensions.png",
+    "default_title": "学习chrome extension 演示demo",
+    "default_popup": "popup/popup.html"
+  },
+  "icons": {
+    "16": "hello_extensions.png",
+    "32": "hello_extensions.png",
+    "48": "hello_extensions.png",
+    "128": "hello_extensions.png"
   },
   "content_scripts":[ {
     "matches": ["<all_urls>"],
@@ -27,6 +35,8 @@
   "permissions": [
     "contextMenus",
     "bookmarks",
+    "alarms",
+    "notifications",
     "activeTab",
     "scripting",
     "storage"

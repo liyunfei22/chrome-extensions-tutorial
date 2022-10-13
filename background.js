@@ -53,3 +53,25 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     sendResponse({farewell: "goodbye"});
   }
 })
+
+chrome.alarms.onAlarm.addListener(() => {
+  chrome.action.setBadgeText({ text: '' });
+  chrome.notifications.create({
+    type: 'basic',
+    iconUrl: 'popup/stay_hydrated.png',
+    title: '温馨提示',
+    message: '太累了就休息会儿吧',
+    buttons: [
+      { title: '好的' }
+    ],
+    priority: 0
+  }, function (notificationId) {
+    console.log('sss', notificationId)
+  });
+});
+
+chrome.notifications.onButtonClicked.addListener(async () => {
+  const item = await chrome.storage.sync.get(['minutes']);
+  chrome.action.setBadgeText({ text: 'ON' });
+  chrome.alarms.create({ delayInMinutes: item.minutes });
+});
