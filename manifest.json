@@ -27,12 +27,19 @@
     "keyword": "hw"
   },
   "commands": {
-    "_execute_action": {
+    "go-google": {
       "suggested_key": {
-        "default": "Ctrl+Shift+H",
-        "mac": "MacCtrl+Shift+H"
+        "default": "Ctrl+Shift+L",
+        "mac": "Command+Shift+L"
       },
-      "description": "open hello.html"
+      "description": "谷歌"
+    },
+    "go-baidu": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P",
+        "mac": "Command+Shift+P"
+      },
+      "description": "百度"
     }
   },
   "permissions": [

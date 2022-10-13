@@ -87,3 +87,12 @@ chrome.contextMenus.onClicked.addListener(function (item, tab) {
   let url = 'https://google.com/search?q=' + encodeURIComponent(item.selectionText);
   chrome.tabs.create({url: url, index: tab.index + 1});
 });
+// 监听快命令
+chrome.commands.onCommand.addListener(command => {
+  console.log(command)
+  if (command === 'go-google') {
+    chrome.tabs.create({ url: "https://www.google.com" });
+  } else {
+    chrome.tabs.create({ url: "https://www.baidu.com" });
+  }
+});
