@@ -5,7 +5,7 @@
 浏览器扩展程序 extensions 是一个小型的程序，它可以使用[浏览器提供的 API](https://developer.chrome.com/docs/extensions/reference/) 和 web 技术以增强浏览器功能。它们让用户可以通过多种方式定制 `Chrome` 的功能和行为，例如生产力工具、信息聚合、 丰富网页内容等
 
 官方说明：
-> Extensions are made of different, but cohesive, components. Components can include [background scripts](https://developer.chrome.com/docs/extensions/mv3/background_pages/), [content scripts](https://developer.chrome.com/docs/extensions/mv3/content_scripts/), an [options page](https://developer.chrome.com/docs/extensions/mv3/options/), [UI elements](https://developer.chrome.com/docs/extensions/mv3/user_interface/) and various logic files. Extension components are created with web development technologies: HTML, CSS, and JavaScript.
+> Extensions are made of different, but cohesive, components. Components can include [background scripts](https://developer.chrome.com/docs/extensions/mv3/background_pages/), [content scripts](https://developer.chrome.com/docs/extensions/mv3/content_scripts/), an [options page](https://developer.chrome.com/docs/extensions/mv3/options/), [UI elements](https://developer.chrome.com/docs/extensions/mv3/user_interface/) and various logic files. Extension components are created with web development technologies: HTML, CSS, and JavaScript..
 扩展由不同但有凝聚力的组件组成。组件可以包括背景脚本、内容脚本、选项页面、UI 元素和各种逻辑文件。扩展组件是使用 Web 开发技术创建的：HTML、CSS 和 JavaScript。
 
 Chrome插件官方称为Chrome扩展(`Chrome Extension`)，真正意义上的Chrome插件是更底层的浏览器功能扩展。本文遵循官方文档，称为Chrome扩展。
