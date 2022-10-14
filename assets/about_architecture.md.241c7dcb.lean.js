@@ -1,0 +1,1 @@
+import{_ as e,c as r,o as t,a as o}from"./app.6667cd43.js";const f=JSON.parse('{"title":"\u67B6\u6784\u6982\u8FF0","description":"","frontmatter":{},"headers":[],"relativePath":"about/architecture.md"}'),a={name:"about/architecture.md"},n=o("",3),c=[n];function s(i,l,p,d,m,_){return t(),r("div",null,c)}const u=e(a,[["render",s]]);export{f as __pageData,u as default};

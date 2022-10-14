@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as a,a as o}from"./app.6667cd43.js";const u=JSON.parse('{"title":"Manifest V3","description":"","frontmatter":{},"headers":[],"relativePath":"about/Manifest.md"}'),p={name:"about/Manifest.md"},l=o("",8),t=[l];function e(D,c,r,F,y,C){return a(),n("div",null,t)}const i=s(p,[["render",e]]);export{u as __pageData,i as default};
