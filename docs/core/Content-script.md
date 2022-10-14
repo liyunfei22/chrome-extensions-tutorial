@@ -35,10 +35,9 @@
 
 静态声明的脚本在“content_scripts”字段下的清单中注册。它们可以包括 JavaScript 文件、CSS 文件或两者兼有。所有自动运行的内容脚本都必须指定匹配模式。
 
-```
+```json
 {
  "name": "My extension",
- ...
  "content_scripts": [
    {
      "matches": ["https://*.nytimes.com/*"],
@@ -46,11 +45,11 @@
      "js": ["content-script.js"]
    }
  ],
- ...
 }
 ```
 
 content_scripts 字段中的值的含义
+
 Name                       | Type             | Description         |
 | -------------------------- | ---------------- | ----------------- |
 | `matches`                  | array of strings | *Required.*       |
@@ -71,7 +70,7 @@ Name                       | Type             | Description         |
 
 示例：
 
-```
+```JSON
 {
   "name": "My extension",
   ...
@@ -86,7 +85,7 @@ Name                       | Type             | Description         |
 
 background.js:
 
-```
+```JS
 function injectedFunction() {
   document.body.style.backgroundColor = 'orange';
 }
@@ -102,7 +101,6 @@ chrome.action.onClicked.addListener((tab) => {
 [官方文档](https://developer.chrome.com/docs/extensions/mv3/content_scripts/)
 
 源码参考：
-[s]()
 
 ## 通信 Message passing
 
@@ -115,7 +113,7 @@ Chrome 除了提供简单的 API 进行一次性的请求-响应通讯([one-time
 使用[runtime.sendMessage](https://developer.chrome.com/docs/extensions/reference/runtime#method-sendMessage) or [tabs.sendMessage](https://developer.chrome.com/docs/extensions/reference/tabs#method-sendMessage) 进行**单次请求**，这两个方法可以设置回调函数，默认接收返回的响应数据作为参数。
 发送消息
 
-```
+```JS
 // content script发送消息
 
 chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
@@ -132,7 +130,7 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 
 接收方接收消息
 
-```
+```JS
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     console.log(sender.tab ?
@@ -146,11 +144,11 @@ chrome.runtime.onMessage.addListener(
 
 ### Long-lived connections
 
-可以使用[runtime.connect](https://developer.chrome.com/docs/extensions/reference/runtime#method-connect) or [tabs.connect](https://developer.chrome.com/docs/extensions/reference/tabs#method-connect) 为内容脚本 content script 和扩展程序之间**建立一个长连接**（可以为信息通道 channel 设置名称，以区别多个通道）。
+可以使用`runtime.connect` or `tabs.connect` 为内容脚本 content script 和扩展程序之间**建立一个长连接**（可以为信息通道 channel 设置名称，以区别多个通道）。
 
-使用以上方法创建通道后，会返回一个 [`runtime.Port` 端口对象](https://link.juejin.cn?target=https%3A%2F%2Fdeveloper.chrome.com%2Fdocs%2Fextensions%2Freference%2Fruntime%2F%23type-Port "https://developer.chrome.com/docs/extensions/reference/runtime/#type-Port")，其中包括了关于信息通道的相关方法和属性，然后就可以通过该通道发送 `portObj.postMessage()` 和接收 `portObj.onMessage.addListener()` 信息。
+使用以上方法创建通道后，会返回一个 `runtime.Port` 端口对象，其中包括了关于信息通道的相关方法和属性，然后就可以通过该通道发送 `portObj.postMessage()` 和接收 `portObj.onMessage.addListener()` 信息。
 
-```
+```JS
 // 在页面脚本 content script 建立长连接的信息通道
 let port = chrome.runtime.connect({name: "knockknock"});
 // 通过该端口发送信息
@@ -168,7 +166,7 @@ port.onMessage.addListener(function(msg) {
 
 信息通道是双向的，因此除了发起端创建端口，还需要在接收端使用[runtime.onConnect](https://developer.chrome.com/docs/extensions/reference/runtime#event-onConnect) **响应通道连接请求**（在内容脚本 content script 和扩展程序中一样）。当通道发起端口调用 connect 方法时，接收端的监听器就会调用回调函数，它将相应的 `runtime.Port` 端口对象作为入参，然后可以使用该端口在通道中发送和接收消息，这样通道两端的接口就可以**相互接收和发送信息**了。
 
-```
+```JS
 chrome.runtime.onConnect.addListener(function(port) {
   console.assert(port.name === "knockknock");
   port.onMessage.addListener(function(msg) {
