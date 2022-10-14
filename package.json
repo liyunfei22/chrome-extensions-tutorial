@@ -1,0 +1,24 @@
+{
+  "name": "hello-word",
+  "version": "1.0.0",
+  "description": "chrome extensions tutorial",
+  "main": "background.js",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liyunfei22/chrome-extensions-tutorial.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liyunfei22/chrome-extensions-tutorial/issues"
+  },
+  "homepage": "https://github.com/liyunfei22/chrome-extensions-tutorial#readme",
+  "devDependencies": {
+    "vitepress": "^1.0.0-alpha.20"
+  }
+}
