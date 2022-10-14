@@ -1,22 +1,58 @@
 {
-  "name": "my first extension",
-  "description": "Base Level Extension",
+  "name": "hello extension",
+  "description": "this is demos from docs",
   "version": "1.0",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
   },
   "action": {
-    "default_popup": "hello.html",
-    "default_icon": "hello_extensions.png"
+    "default_icon": "hello_extensions.png",
+    "default_title": "学习chrome extension 演示demo",
+    "default_popup": "popup/popup.html"
+  },
+  "icons": {
+    "16": "hello_extensions.png",
+    "32": "hello_extensions.png",
+    "48": "hello_extensions.png",
+    "128": "hello_extensions.png"
+  },
+  "content_scripts":[ {
+    "matches": ["<all_urls>"],
+    "exclude_matches": ["*://127.0.0.1/*", "*://localhost/*", "*://dev.djtest.cn/*"],
+     "css": ["content/index.css"],
+     "js": ["content/index.js"]
+  }],
+  "omnibox": {
+    "keyword": "hw"
   },
   "commands": {
-    "_execute_action": {
+    "go-google": {
       "suggested_key": {
-        "default": "Ctrl+Shift+H",
-        "mac": "MacCtrl+Shift+H"
+        "default": "Ctrl+Shift+L",
+        "mac": "Command+Shift+L"
       },
-      "description": "open hello.html"
+      "description": "谷歌"
+    },
+    "go-baidu": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P",
+        "mac": "Command+Shift+P"
+      },
+      "description": "百度"
     }
-  }
+  },
+  "chrome_url_overrides" : {
+    "history": "history/history.html"
+  },
+  "permissions": [
+    "contextMenus",
+    "bookmarks",
+    "alarms",
+    "notifications",
+    "activeTab",
+    "scripting",
+    "history",
+    "storage"
+  ]
 }
