@@ -2,7 +2,7 @@
 
 ## 什么是 Chrome extensions
 
-浏览器扩展程序 extensions 是一个小型的程序，它可以使用[浏览器提供的 API](https://developer.chrome.com/docs/extensions/reference/) 和 web 技术以增强浏览器功能。它们让用户可以通过多种方式定制 Chrome 的功能和行为，例如生产力工具、信息聚合、 丰富网页内容等
+浏览器扩展程序 extensions 是一个小型的程序，它可以使用[浏览器提供的 API](https://developer.chrome.com/docs/extensions/reference/) 和 web 技术以增强浏览器功能。它们让用户可以通过多种方式定制 `Chrome` 的功能和行为，例如生产力工具、信息聚合、 丰富网页内容等
 
 官方说明：
 > Extensions are made of different, but cohesive, components. Components can include [background scripts](https://developer.chrome.com/docs/extensions/mv3/background_pages/), [content scripts](https://developer.chrome.com/docs/extensions/mv3/content_scripts/), an [options page](https://developer.chrome.com/docs/extensions/mv3/options/), [UI elements](https://developer.chrome.com/docs/extensions/mv3/user_interface/) and various logic files. Extension components are created with web development technologies: HTML, CSS, and JavaScript.
