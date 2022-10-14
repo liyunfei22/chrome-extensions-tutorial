@@ -1,5 +1,6 @@
 module.exports = {
   title: 'Chrome extensions development',
+  base: '/chrome-extensions-tutorial/',
   themeConfig: {
     logo: '/images/logo-c.png',
     nav: [
